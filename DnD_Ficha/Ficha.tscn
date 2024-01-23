@@ -1,0 +1,860 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Dados.gd" type="Script" id=1]
+[ext_resource path="res://Total.gd" type="Script" id=2]
+[ext_resource path="res://Base.gd" type="Script" id=3]
+[ext_resource path="res://Bonus.gd" type="Script" id=4]
+[ext_resource path="res://ValorActual.gd" type="Script" id=5]
+[ext_resource path="res://Especie.gd" type="Script" id=6]
+[ext_resource path="res://Clase.gd" type="Script" id=7]
+[ext_resource path="res://Ilustracion.gd" type="Script" id=8]
+[ext_resource path="res://PuntosOro.gd" type="Script" id=9]
+[ext_resource path="res://Ilustraciones/Background.png" type="Texture" id=10]
+[ext_resource path="res://Accion.gd" type="Script" id=11]
+[ext_resource path="res://AccionAdicional.gd" type="Script" id=12]
+[ext_resource path="res://ClaseArmadura.gd" type="Script" id=13]
+[ext_resource path="res://Estado.gd" type="Script" id=14]
+[ext_resource path="res://Cansancio.gd" type="Script" id=15]
+[ext_resource path="res://Alineamiento.gd" type="Script" id=16]
+[ext_resource path="res://Ilustraciones/TablaMonedas.png" type="Texture" id=19]
+[ext_resource path="res://VerCambioMoneda.gd" type="Script" id=20]
+[ext_resource path="res://VerTablaModificadores.gd" type="Script" id=21]
+[ext_resource path="res://Ilustraciones/TablaModificadores.png" type="Texture" id=22]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+margin_top = -106.0
+margin_right = 960.0
+margin_bottom = 614.0
+texture = ExtResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 960.0
+margin_bottom = 544.0
+color = Color( 0, 0, 0, 0.862745 )
+
+[node name="Aventurero" type="Label" parent="ColorRect"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 85.0
+margin_bottom = 41.0
+text = "Aventurero:
+"
+
+[node name="Estado" type="OptionButton" parent="ColorRect"]
+margin_left = 250.0
+margin_top = 10.0
+margin_right = 321.0
+margin_bottom = 30.0
+text = "Estado"
+script = ExtResource( 14 )
+
+[node name="Ilustracion" type="TextureRect" parent="ColorRect"]
+margin_left = 530.0
+margin_top = 20.0
+margin_right = 930.0
+margin_bottom = 520.0
+script = ExtResource( 8 )
+
+[node name="ClaseEspecie" type="VBoxContainer" parent="ColorRect"]
+margin_left = 557.0
+margin_top = 22.0
+margin_right = 586.0
+margin_bottom = 67.0
+
+[node name="Especie" type="OptionButton" parent="ColorRect/ClaseEspecie"]
+margin_right = 78.0
+margin_bottom = 20.0
+toggle_mode = false
+text = "Especie"
+script = ExtResource( 6 )
+
+[node name="Clase" type="OptionButton" parent="ColorRect/ClaseEspecie"]
+margin_top = 24.0
+margin_right = 78.0
+margin_bottom = 44.0
+text = "Clase"
+script = ExtResource( 7 )
+
+[node name="AlineamientoNivel" type="VBoxContainer" parent="ColorRect"]
+margin_left = 740.0
+margin_top = 22.0
+margin_right = 818.0
+margin_bottom = 22.0
+
+[node name="Alineamiento" type="OptionButton" parent="ColorRect/AlineamientoNivel"]
+margin_right = 115.0
+margin_bottom = 20.0
+text = "Alineamiento"
+script = ExtResource( 16 )
+
+[node name="Base" type="OptionButton" parent="ColorRect/AlineamientoNivel"]
+margin_top = 24.0
+margin_right = 115.0
+margin_bottom = 44.0
+text = "Nivel"
+script = ExtResource( 3 )
+
+[node name="DatosPJ" type="HBoxContainer" parent="ColorRect"]
+margin_left = 20.0
+margin_top = 35.0
+margin_right = 430.0
+margin_bottom = 80.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/DatosPJ"]
+margin_right = 410.0
+margin_bottom = 45.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/DatosPJ/VBoxContainer2"]
+margin_right = 410.0
+margin_bottom = 20.0
+
+[node name="ClaseArmadura" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer"]
+margin_right = 91.0
+margin_bottom = 20.0
+text = "Armadura"
+script = ExtResource( 13 )
+
+[node name="PiesVelocidad" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer"]
+margin_left = 95.0
+margin_right = 159.0
+margin_bottom = 20.0
+text = "Veloc"
+
+[node name="Iniciativa" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer"]
+margin_left = 163.0
+margin_right = 250.0
+margin_bottom = 20.0
+text = "Iniciativa"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/DatosPJ/VBoxContainer2"]
+margin_top = 24.0
+margin_right = 410.0
+margin_bottom = 44.0
+
+[node name="ClaseConjuros" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer2"]
+margin_right = 86.0
+margin_bottom = 20.0
+text = "Clase Mg"
+
+[node name="AptitudMagica" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer2"]
+margin_left = 90.0
+margin_right = 164.0
+margin_bottom = 20.0
+text = "Apt Mg"
+
+[node name="Iniciativa" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer2"]
+margin_left = 168.0
+margin_right = 237.0
+margin_bottom = 20.0
+text = "Ini Mg"
+
+[node name="CDsalvaConjuros" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer2"]
+margin_left = 241.0
+margin_right = 311.0
+margin_bottom = 20.0
+text = "CD Mg"
+
+[node name="BonificadorConjuros" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer2"]
+margin_left = 315.0
+margin_right = 410.0
+margin_bottom = 20.0
+text = "Bonus MG"
+
+[node name="BloqueDatos" type="VBoxContainer" parent="ColorRect"]
+margin_left = 15.0
+margin_top = 125.0
+margin_right = 366.0
+margin_bottom = 305.0
+
+[node name="Leyenda" type="HBoxContainer" parent="ColorRect/BloqueDatos"]
+margin_right = 508.0
+margin_bottom = 14.0
+
+[node name="Caracteristica" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_right = 90.0
+margin_bottom = 14.0
+text = "Caracteristica:"
+
+[node name="Base" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_left = 94.0
+margin_right = 125.0
+margin_bottom = 14.0
+text = "Base"
+align = 1
+
+[node name="Sumar" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_left = 129.0
+margin_right = 145.0
+margin_bottom = 14.0
+text = " + "
+align = 1
+
+[node name="Dados" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_left = 149.0
+margin_right = 189.0
+margin_bottom = 14.0
+text = "Dados"
+align = 1
+
+[node name="Sumar2" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_left = 193.0
+margin_right = 209.0
+margin_bottom = 14.0
+text = " + "
+align = 1
+
+[node name="Bonus" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_left = 213.0
+margin_right = 253.0
+margin_bottom = 14.0
+text = "Bonus"
+align = 1
+
+[node name="ResLabel" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_left = 257.0
+margin_right = 316.0
+margin_bottom = 14.0
+text = "> Total = "
+align = 1
+
+[node name="Total" type="Label" parent="ColorRect/BloqueDatos/Leyenda"]
+margin_left = 320.0
+margin_right = 508.0
+margin_bottom = 14.0
+text = "Tirada salvacion (Modificador)"
+align = 1
+
+[node name="CD1" type="HBoxContainer" parent="ColorRect/BloqueDatos"]
+margin_top = 18.0
+margin_right = 508.0
+margin_bottom = 38.0
+
+[node name="Fuerza" type="Label" parent="ColorRect/BloqueDatos/CD1"]
+margin_top = 3.0
+margin_right = 98.0
+margin_bottom = 17.0
+text = "Fuerza:             "
+
+[node name="Base" type="OptionButton" parent="ColorRect/BloqueDatos/CD1"]
+margin_left = 102.0
+margin_right = 131.0
+margin_bottom = 20.0
+script = ExtResource( 3 )
+
+[node name="Sumar" type="Label" parent="ColorRect/BloqueDatos/CD1"]
+margin_left = 135.0
+margin_top = 3.0
+margin_right = 151.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Dados" type="OptionButton" parent="ColorRect/BloqueDatos/CD1"]
+margin_left = 155.0
+margin_right = 184.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Sumar2" type="Label" parent="ColorRect/BloqueDatos/CD1"]
+margin_left = 188.0
+margin_top = 3.0
+margin_right = 204.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Bonus" type="OptionButton" parent="ColorRect/BloqueDatos/CD1"]
+margin_left = 208.0
+margin_right = 237.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+
+[node name="ResLabel" type="Label" parent="ColorRect/BloqueDatos/CD1"]
+margin_left = 241.0
+margin_top = 3.0
+margin_right = 300.0
+margin_bottom = 17.0
+text = "> Total = "
+align = 1
+
+[node name="Total" type="Label" parent="ColorRect/BloqueDatos/CD1"]
+margin_left = 304.0
+margin_top = 3.0
+margin_right = 335.0
+margin_bottom = 17.0
+text = "Total"
+align = 1
+script = ExtResource( 2 )
+
+[node name="CD2" type="HBoxContainer" parent="ColorRect/BloqueDatos"]
+margin_top = 42.0
+margin_right = 508.0
+margin_bottom = 62.0
+
+[node name="Destreza" type="Label" parent="ColorRect/BloqueDatos/CD2"]
+margin_top = 3.0
+margin_right = 97.0
+margin_bottom = 17.0
+text = "Destreza:         "
+
+[node name="Base" type="OptionButton" parent="ColorRect/BloqueDatos/CD2"]
+margin_left = 101.0
+margin_right = 130.0
+margin_bottom = 20.0
+script = ExtResource( 3 )
+
+[node name="Sumar" type="Label" parent="ColorRect/BloqueDatos/CD2"]
+margin_left = 134.0
+margin_top = 3.0
+margin_right = 150.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Dados" type="OptionButton" parent="ColorRect/BloqueDatos/CD2"]
+margin_left = 154.0
+margin_right = 183.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Sumar2" type="Label" parent="ColorRect/BloqueDatos/CD2"]
+margin_left = 187.0
+margin_top = 3.0
+margin_right = 203.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Bonus" type="OptionButton" parent="ColorRect/BloqueDatos/CD2"]
+margin_left = 207.0
+margin_right = 236.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+
+[node name="ResLabel" type="Label" parent="ColorRect/BloqueDatos/CD2"]
+margin_left = 240.0
+margin_top = 3.0
+margin_right = 299.0
+margin_bottom = 17.0
+text = "> Total = "
+align = 1
+
+[node name="Total" type="Label" parent="ColorRect/BloqueDatos/CD2"]
+margin_left = 303.0
+margin_top = 3.0
+margin_right = 334.0
+margin_bottom = 17.0
+text = "Total"
+align = 1
+script = ExtResource( 2 )
+
+[node name="CD3" type="HBoxContainer" parent="ColorRect/BloqueDatos"]
+margin_top = 66.0
+margin_right = 508.0
+margin_bottom = 86.0
+
+[node name="Constitucion" type="Label" parent="ColorRect/BloqueDatos/CD3"]
+margin_top = 3.0
+margin_right = 100.0
+margin_bottom = 17.0
+text = "Constitucion:    "
+
+[node name="Base" type="OptionButton" parent="ColorRect/BloqueDatos/CD3"]
+margin_left = 104.0
+margin_right = 133.0
+margin_bottom = 20.0
+script = ExtResource( 3 )
+
+[node name="Sumar" type="Label" parent="ColorRect/BloqueDatos/CD3"]
+margin_left = 137.0
+margin_top = 3.0
+margin_right = 153.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Dados" type="OptionButton" parent="ColorRect/BloqueDatos/CD3"]
+margin_left = 157.0
+margin_right = 186.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Sumar2" type="Label" parent="ColorRect/BloqueDatos/CD3"]
+margin_left = 190.0
+margin_top = 3.0
+margin_right = 206.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Bonus" type="OptionButton" parent="ColorRect/BloqueDatos/CD3"]
+margin_left = 210.0
+margin_right = 239.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+
+[node name="ResLabel" type="Label" parent="ColorRect/BloqueDatos/CD3"]
+margin_left = 243.0
+margin_top = 3.0
+margin_right = 302.0
+margin_bottom = 17.0
+text = "> Total = "
+align = 1
+
+[node name="Total" type="Label" parent="ColorRect/BloqueDatos/CD3"]
+margin_left = 306.0
+margin_top = 3.0
+margin_right = 337.0
+margin_bottom = 17.0
+text = "Total"
+align = 1
+script = ExtResource( 2 )
+
+[node name="CD4" type="HBoxContainer" parent="ColorRect/BloqueDatos"]
+margin_top = 90.0
+margin_right = 508.0
+margin_bottom = 110.0
+
+[node name="Inteligencia" type="Label" parent="ColorRect/BloqueDatos/CD4"]
+margin_top = 3.0
+margin_right = 99.0
+margin_bottom = 17.0
+text = "Inteligencia:     "
+
+[node name="Base" type="OptionButton" parent="ColorRect/BloqueDatos/CD4"]
+margin_left = 103.0
+margin_right = 132.0
+margin_bottom = 20.0
+script = ExtResource( 3 )
+
+[node name="Sumar" type="Label" parent="ColorRect/BloqueDatos/CD4"]
+margin_left = 136.0
+margin_top = 3.0
+margin_right = 152.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Dados" type="OptionButton" parent="ColorRect/BloqueDatos/CD4"]
+margin_left = 156.0
+margin_right = 185.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Sumar2" type="Label" parent="ColorRect/BloqueDatos/CD4"]
+margin_left = 189.0
+margin_top = 3.0
+margin_right = 205.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Bonus" type="OptionButton" parent="ColorRect/BloqueDatos/CD4"]
+margin_left = 209.0
+margin_right = 238.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+
+[node name="ResLabel" type="Label" parent="ColorRect/BloqueDatos/CD4"]
+margin_left = 242.0
+margin_top = 3.0
+margin_right = 301.0
+margin_bottom = 17.0
+text = "> Total = "
+align = 1
+
+[node name="Total" type="Label" parent="ColorRect/BloqueDatos/CD4"]
+margin_left = 305.0
+margin_top = 3.0
+margin_right = 336.0
+margin_bottom = 17.0
+text = "Total"
+align = 1
+script = ExtResource( 2 )
+
+[node name="CD5" type="HBoxContainer" parent="ColorRect/BloqueDatos"]
+margin_top = 114.0
+margin_right = 508.0
+margin_bottom = 134.0
+
+[node name="Sabiduria" type="Label" parent="ColorRect/BloqueDatos/CD5"]
+margin_top = 3.0
+margin_right = 102.0
+margin_bottom = 17.0
+text = "Sabiduria:          "
+
+[node name="Base" type="OptionButton" parent="ColorRect/BloqueDatos/CD5"]
+margin_left = 106.0
+margin_right = 135.0
+margin_bottom = 20.0
+script = ExtResource( 3 )
+
+[node name="Sumar" type="Label" parent="ColorRect/BloqueDatos/CD5"]
+margin_left = 139.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Dados" type="OptionButton" parent="ColorRect/BloqueDatos/CD5"]
+margin_left = 159.0
+margin_right = 188.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Sumar2" type="Label" parent="ColorRect/BloqueDatos/CD5"]
+margin_left = 192.0
+margin_top = 3.0
+margin_right = 208.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Bonus" type="OptionButton" parent="ColorRect/BloqueDatos/CD5"]
+margin_left = 212.0
+margin_right = 241.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+
+[node name="ResLabel" type="Label" parent="ColorRect/BloqueDatos/CD5"]
+margin_left = 245.0
+margin_top = 3.0
+margin_right = 304.0
+margin_bottom = 17.0
+text = "> Total = "
+align = 1
+
+[node name="Total" type="Label" parent="ColorRect/BloqueDatos/CD5"]
+margin_left = 308.0
+margin_top = 3.0
+margin_right = 339.0
+margin_bottom = 17.0
+text = "Total"
+align = 1
+script = ExtResource( 2 )
+
+[node name="CD6" type="HBoxContainer" parent="ColorRect/BloqueDatos"]
+margin_top = 138.0
+margin_right = 508.0
+margin_bottom = 158.0
+
+[node name="Caracteristica" type="Label" parent="ColorRect/BloqueDatos/CD6"]
+margin_top = 3.0
+margin_right = 99.0
+margin_bottom = 17.0
+text = "Carisma:           "
+
+[node name="Base" type="OptionButton" parent="ColorRect/BloqueDatos/CD6"]
+margin_left = 103.0
+margin_right = 132.0
+margin_bottom = 20.0
+script = ExtResource( 3 )
+
+[node name="Sumar" type="Label" parent="ColorRect/BloqueDatos/CD6"]
+margin_left = 136.0
+margin_top = 3.0
+margin_right = 152.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Dados" type="OptionButton" parent="ColorRect/BloqueDatos/CD6"]
+margin_left = 156.0
+margin_right = 185.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Sumar2" type="Label" parent="ColorRect/BloqueDatos/CD6"]
+margin_left = 189.0
+margin_top = 3.0
+margin_right = 205.0
+margin_bottom = 17.0
+text = " + "
+align = 1
+
+[node name="Bonus" type="OptionButton" parent="ColorRect/BloqueDatos/CD6"]
+margin_left = 209.0
+margin_right = 238.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+
+[node name="ResLabel" type="Label" parent="ColorRect/BloqueDatos/CD6"]
+margin_left = 242.0
+margin_top = 3.0
+margin_right = 301.0
+margin_bottom = 17.0
+text = "> Total = "
+align = 1
+
+[node name="Total" type="Label" parent="ColorRect/BloqueDatos/CD6"]
+margin_left = 305.0
+margin_top = 3.0
+margin_right = 336.0
+margin_bottom = 17.0
+text = "Total"
+align = 1
+script = ExtResource( 2 )
+
+[node name="TablaHabilidades" type="Label" parent="ColorRect"]
+margin_left = 100.0
+margin_top = 300.0
+margin_right = 322.0
+margin_bottom = 314.0
+text = "Habilidad = salvacion + bonificador"
+
+[node name="PercepcionPasiva" type="HBoxContainer" parent="ColorRect"]
+margin_left = 140.0
+margin_top = 320.0
+margin_right = 288.0
+margin_bottom = 340.0
+
+[node name="Percepcion" type="Label" parent="ColorRect/PercepcionPasiva"]
+margin_top = 3.0
+margin_right = 115.0
+margin_bottom = 17.0
+text = "Percepcion pasiva"
+align = 1
+
+[node name="ValorActual" type="OptionButton" parent="ColorRect/PercepcionPasiva"]
+margin_left = 119.0
+margin_right = 148.0
+margin_bottom = 20.0
+script = ExtResource( 5 )
+
+[node name="AccionesCombate" type="VBoxContainer" parent="ColorRect"]
+margin_left = 230.0
+margin_top = 350.0
+margin_right = 527.0
+margin_bottom = 528.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/AccionesCombate"]
+margin_right = 297.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="ColorRect/AccionesCombate/HBoxContainer"]
+margin_top = 3.0
+margin_right = 57.0
+margin_bottom = 17.0
+text = "Combate"
+align = 1
+
+[node name="PuntosGolpe" type="OptionButton" parent="ColorRect/AccionesCombate/HBoxContainer"]
+margin_left = 61.0
+margin_right = 200.0
+margin_bottom = 20.0
+text = "Puntos de Golpe "
+
+[node name="Cansancio" type="OptionButton" parent="ColorRect/AccionesCombate/HBoxContainer"]
+margin_left = 204.0
+margin_right = 297.0
+margin_bottom = 20.0
+text = "Cansancio"
+script = ExtResource( 15 )
+
+[node name="Movimiento" type="Label" parent="ColorRect/AccionesCombate"]
+margin_top = 24.0
+margin_right = 297.0
+margin_bottom = 38.0
+text = "Movimiento"
+
+[node name="Accion" type="OptionButton" parent="ColorRect/AccionesCombate"]
+margin_top = 42.0
+margin_right = 297.0
+margin_bottom = 62.0
+text = "Accion"
+script = ExtResource( 11 )
+
+[node name="AccionAdicional" type="OptionButton" parent="ColorRect/AccionesCombate"]
+margin_top = 66.0
+margin_right = 297.0
+margin_bottom = 86.0
+script = ExtResource( 12 )
+
+[node name="Reaccion" type="Label" parent="ColorRect/AccionesCombate"]
+margin_top = 90.0
+margin_right = 297.0
+margin_bottom = 104.0
+text = "* Reaccion"
+
+[node name="SalvacionesMurete" type="VBoxContainer" parent="ColorRect/AccionesCombate"]
+margin_top = 108.0
+margin_right = 297.0
+margin_bottom = 178.0
+
+[node name="SalvacionesMuerte" type="Label" parent="ColorRect/AccionesCombate/SalvacionesMurete"]
+margin_right = 297.0
+margin_bottom = 14.0
+text = "Salvaciones contra Muerte"
+
+[node name="Exitos" type="HBoxContainer" parent="ColorRect/AccionesCombate/SalvacionesMurete"]
+margin_top = 18.0
+margin_right = 297.0
+margin_bottom = 42.0
+
+[node name="Exitos" type="Label" parent="ColorRect/AccionesCombate/SalvacionesMurete/Exitos"]
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 19.0
+text = "Exitos: "
+
+[node name="Exito1" type="CheckBox" parent="ColorRect/AccionesCombate/SalvacionesMurete/Exitos"]
+margin_left = 50.0
+margin_right = 74.0
+margin_bottom = 24.0
+
+[node name="Exito2" type="CheckBox" parent="ColorRect/AccionesCombate/SalvacionesMurete/Exitos"]
+margin_left = 78.0
+margin_right = 102.0
+margin_bottom = 24.0
+
+[node name="Exito3" type="CheckBox" parent="ColorRect/AccionesCombate/SalvacionesMurete/Exitos"]
+margin_left = 106.0
+margin_right = 130.0
+margin_bottom = 24.0
+
+[node name="Fracasos" type="HBoxContainer" parent="ColorRect/AccionesCombate/SalvacionesMurete"]
+margin_top = 46.0
+margin_right = 297.0
+margin_bottom = 70.0
+
+[node name="Fracasos" type="Label" parent="ColorRect/AccionesCombate/SalvacionesMurete/Fracasos"]
+margin_top = 5.0
+margin_right = 59.0
+margin_bottom = 19.0
+text = "Fracasos:"
+
+[node name="Fracaso1" type="CheckBox" parent="ColorRect/AccionesCombate/SalvacionesMurete/Fracasos"]
+margin_left = 63.0
+margin_right = 87.0
+margin_bottom = 24.0
+
+[node name="Fracaso2" type="CheckBox" parent="ColorRect/AccionesCombate/SalvacionesMurete/Fracasos"]
+margin_left = 91.0
+margin_right = 115.0
+margin_bottom = 24.0
+
+[node name="Fracaso3" type="CheckBox" parent="ColorRect/AccionesCombate/SalvacionesMurete/Fracasos"]
+margin_left = 119.0
+margin_right = 143.0
+margin_bottom = 24.0
+
+[node name="Dinero" type="VBoxContainer" parent="ColorRect"]
+margin_left = 25.0
+margin_top = 350.0
+margin_right = 210.0
+margin_bottom = 514.0
+
+[node name="VerCambioMoneda" type="CheckButton" parent="ColorRect/Dinero"]
+margin_right = 185.0
+margin_bottom = 40.0
+text = "Tabla de Cambio"
+script = ExtResource( 20 )
+
+[node name="Tabla" type="TextureRect" parent="ColorRect/Dinero/VerCambioMoneda"]
+visible = false
+margin_left = 190.0
+margin_right = 674.0
+margin_bottom = 234.0
+texture = ExtResource( 19 )
+
+[node name="Cobre" type="HBoxContainer" parent="ColorRect/Dinero"]
+margin_top = 44.0
+margin_right = 185.0
+margin_bottom = 64.0
+
+[node name="PC" type="Label" parent="ColorRect/Dinero/Cobre"]
+margin_top = 3.0
+margin_right = 110.0
+margin_bottom = 17.0
+text = "Piezas Cobre (PC)"
+
+[node name="PiezasCobre" type="OptionButton" parent="ColorRect/Dinero/Cobre"]
+margin_left = 114.0
+margin_right = 143.0
+margin_bottom = 20.0
+
+[node name="Plata" type="HBoxContainer" parent="ColorRect/Dinero"]
+margin_top = 68.0
+margin_right = 185.0
+margin_bottom = 88.0
+
+[node name="PP" type="Label" parent="ColorRect/Dinero/Plata"]
+margin_top = 3.0
+margin_right = 104.0
+margin_bottom = 17.0
+text = "Piezas Plata (PP)"
+
+[node name="PiezasPlata" type="OptionButton" parent="ColorRect/Dinero/Plata"]
+margin_left = 108.0
+margin_right = 137.0
+margin_bottom = 20.0
+
+[node name="Electro" type="HBoxContainer" parent="ColorRect/Dinero"]
+margin_top = 92.0
+margin_right = 185.0
+margin_bottom = 112.0
+
+[node name="PE" type="Label" parent="ColorRect/Dinero/Electro"]
+margin_top = 3.0
+margin_right = 116.0
+margin_bottom = 17.0
+text = "Piezas Electro (PE)"
+
+[node name="PiezasElectro" type="OptionButton" parent="ColorRect/Dinero/Electro"]
+margin_left = 120.0
+margin_right = 149.0
+margin_bottom = 20.0
+
+[node name="Oro" type="HBoxContainer" parent="ColorRect/Dinero"]
+margin_top = 116.0
+margin_right = 185.0
+margin_bottom = 136.0
+
+[node name="PO" type="Label" parent="ColorRect/Dinero/Oro"]
+margin_top = 3.0
+margin_right = 100.0
+margin_bottom = 17.0
+text = "Piezas Oro (PO)"
+
+[node name="PiezasOro" type="OptionButton" parent="ColorRect/Dinero/Oro"]
+margin_left = 104.0
+margin_right = 133.0
+margin_bottom = 20.0
+script = ExtResource( 9 )
+
+[node name="Platino" type="HBoxContainer" parent="ColorRect/Dinero"]
+margin_top = 140.0
+margin_right = 185.0
+margin_bottom = 160.0
+
+[node name="PPT" type="Label" parent="ColorRect/Dinero/Platino"]
+margin_top = 3.0
+margin_right = 124.0
+margin_bottom = 17.0
+text = "Piezas Platino (PPT)"
+
+[node name="PiezasElectro2" type="OptionButton" parent="ColorRect/Dinero/Platino"]
+margin_left = 128.0
+margin_right = 157.0
+margin_bottom = 20.0
+
+[node name="VerTablaModificadores" type="CheckButton" parent="."]
+margin_left = 80.0
+margin_top = 90.0
+margin_right = 287.0
+margin_bottom = 130.0
+text = "Tabla Modificadores"
+script = ExtResource( 21 )
+
+[node name="Tabla" type="TextureRect" parent="VerTablaModificadores"]
+visible = false
+margin_left = 200.0
+margin_right = 684.0
+margin_bottom = 324.0
+texture = ExtResource( 22 )
+
+[connection signal="toggled" from="ColorRect/Dinero/VerCambioMoneda" to="ColorRect/Dinero/VerCambioMoneda" method="_on_VerCambioMoneda_toggled"]
+[connection signal="toggled" from="VerTablaModificadores" to="VerTablaModificadores" method="_on_VerTablaModificadores_toggled"]

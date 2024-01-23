@@ -1,0 +1,10 @@
+﻿Creditos:
+
+Dungeons & Dragons, D & D, and their respective logos are property of Wizards of the Coast LLC in the U.S.A. and other countries. © 2023 Wizards.
+
+Font Dragonsong by Narathira (https://www.dafont.com/narathira.d1644)
+
+Diseño de app, codigo, y foto de fondo son de mi autoria. (Bunkai)
+
+Herramienta programada en Godot 3.5
+https://godotengine.org/download/archive/3.5-stable/
