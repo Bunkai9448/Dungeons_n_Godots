@@ -16,6 +16,3 @@ func _process(_delta):
 	var ilustracion = "Ilustraciones/" + especie.get_item_text(selectedID) + ".png"
 	texture = load(ilustracion)
 
-
-func _on_VerCambioMoneda_toggled(button_pressed):
-	pass # Replace with function body.
