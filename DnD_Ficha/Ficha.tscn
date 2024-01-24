@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Dados.gd" type="Script" id=1]
 [ext_resource path="res://Total.gd" type="Script" id=2]
@@ -12,10 +12,11 @@
 [ext_resource path="res://Ilustraciones/Background.png" type="Texture" id=10]
 [ext_resource path="res://Accion.gd" type="Script" id=11]
 [ext_resource path="res://AccionAdicional.gd" type="Script" id=12]
-[ext_resource path="res://ClaseArmadura.gd" type="Script" id=13]
+[ext_resource path="res://ComoCalcularlos.gd" type="Script" id=13]
 [ext_resource path="res://Estado.gd" type="Script" id=14]
 [ext_resource path="res://Cansancio.gd" type="Script" id=15]
 [ext_resource path="res://Alineamiento.gd" type="Script" id=16]
+[ext_resource path="res://Ilustraciones/DatosBase.png" type="Texture" id=17]
 [ext_resource path="res://Ilustraciones/TablaMonedas.png" type="Texture" id=19]
 [ext_resource path="res://VerCambioMoneda.gd" type="Script" id=20]
 [ext_resource path="res://VerTablaModificadores.gd" type="Script" id=21]
@@ -103,35 +104,48 @@ margin_right = 430.0
 margin_bottom = 80.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/DatosPJ"]
-margin_right = 410.0
-margin_bottom = 45.0
+margin_right = 443.0
+margin_bottom = 64.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/DatosPJ/VBoxContainer2"]
-margin_right = 410.0
-margin_bottom = 20.0
+margin_right = 443.0
+margin_bottom = 40.0
 
 [node name="ClaseArmadura" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer"]
 margin_right = 91.0
-margin_bottom = 20.0
+margin_bottom = 40.0
 text = "Armadura"
-script = ExtResource( 13 )
 
 [node name="PiesVelocidad" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer"]
 margin_left = 95.0
 margin_right = 159.0
-margin_bottom = 20.0
+margin_bottom = 40.0
 text = "Veloc"
 
 [node name="Iniciativa" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer"]
 margin_left = 163.0
 margin_right = 250.0
-margin_bottom = 20.0
+margin_bottom = 40.0
 text = "Iniciativa"
 
+[node name="ComoCalcularlos" type="CheckButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer"]
+margin_left = 254.0
+margin_right = 443.0
+margin_bottom = 40.0
+text = "Como calcularlos"
+script = ExtResource( 13 )
+
+[node name="Tabla" type="TextureRect" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer/ComoCalcularlos"]
+visible = false
+margin_left = 200.0
+margin_right = 684.0
+margin_bottom = 324.0
+texture = ExtResource( 17 )
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/DatosPJ/VBoxContainer2"]
-margin_top = 24.0
-margin_right = 410.0
-margin_bottom = 44.0
+margin_top = 44.0
+margin_right = 443.0
+margin_bottom = 64.0
 
 [node name="ClaseConjuros" type="OptionButton" parent="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer2"]
 margin_right = 86.0
@@ -841,7 +855,7 @@ margin_left = 128.0
 margin_right = 157.0
 margin_bottom = 20.0
 
-[node name="VerTablaModificadores" type="CheckButton" parent="."]
+[node name="VerTablaModificadores2" type="CheckButton" parent="."]
 margin_left = 80.0
 margin_top = 90.0
 margin_right = 287.0
@@ -849,12 +863,13 @@ margin_bottom = 130.0
 text = "Tabla Modificadores"
 script = ExtResource( 21 )
 
-[node name="Tabla" type="TextureRect" parent="VerTablaModificadores"]
+[node name="Tabla" type="TextureRect" parent="VerTablaModificadores2"]
 visible = false
 margin_left = 200.0
 margin_right = 684.0
 margin_bottom = 324.0
 texture = ExtResource( 22 )
 
+[connection signal="toggled" from="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer/ComoCalcularlos" to="ColorRect/DatosPJ/VBoxContainer2/HBoxContainer/ComoCalcularlos" method="_on_ComoCalcularlos_toggled"]
 [connection signal="toggled" from="ColorRect/Dinero/VerCambioMoneda" to="ColorRect/Dinero/VerCambioMoneda" method="_on_VerCambioMoneda_toggled"]
-[connection signal="toggled" from="VerTablaModificadores" to="VerTablaModificadores" method="_on_VerTablaModificadores_toggled"]
+[connection signal="toggled" from="VerTablaModificadores2" to="VerTablaModificadores2" method="_on_VerTablaModificadores_toggled"]
