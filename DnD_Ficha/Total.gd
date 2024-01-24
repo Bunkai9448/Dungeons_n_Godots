@@ -14,8 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var base = get_parent().get_node("Base").get_selected_id() + 1
-	var dados = get_parent().get_node("Dados").get_selected_id() + 1
 	var bonus = get_parent().get_node("Bonus").get_selected_id()
 	
-	var total = base + dados + bonus
+	var total = (base -10) / 2 + bonus
 	text = "%s" % str(total)

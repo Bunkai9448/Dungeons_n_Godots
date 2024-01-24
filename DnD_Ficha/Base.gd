@@ -7,9 +7,9 @@ onready var carasDado = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_item( "Nivel" )
+	add_item( "Base" )
 	for i in carasDado :
-		add_item( str(i) )
+		add_item( str(i+1) )
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
