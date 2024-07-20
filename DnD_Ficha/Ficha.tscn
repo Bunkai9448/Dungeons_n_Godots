@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://ClaseMG.gd" type="Script" id=1]
 [ext_resource path="res://Total.gd" type="Script" id=2]
@@ -23,8 +23,10 @@
 [ext_resource path="res://VerTablaModificadores.gd" type="Script" id=21]
 [ext_resource path="res://Ilustraciones/TablaModificadores.png" type="Texture" id=22]
 [ext_resource path="res://Ilustraciones/Descansos.png" type="Texture" id=23]
+[ext_resource path="res://Ficha.gd" type="Script" id=24]
 
-[node name="Node2D" type="Node2D"]
+[node name="Ficha" type="Node2D"]
+script = ExtResource( 24 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_top = -106.0
@@ -665,9 +667,9 @@ margin_bottom = 234.0
 texture = ExtResource( 19 )
 
 [node name="Cobre" type="HBoxContainer" parent="ColorRect/Dinero"]
-margin_top = 34.0
+margin_top = 44.0
 margin_right = 185.0
-margin_bottom = 54.0
+margin_bottom = 64.0
 
 [node name="PC" type="Label" parent="ColorRect/Dinero/Cobre"]
 margin_top = 3.0
@@ -681,9 +683,9 @@ margin_right = 143.0
 margin_bottom = 20.0
 
 [node name="Plata" type="HBoxContainer" parent="ColorRect/Dinero"]
-margin_top = 58.0
+margin_top = 68.0
 margin_right = 185.0
-margin_bottom = 78.0
+margin_bottom = 88.0
 
 [node name="PP" type="Label" parent="ColorRect/Dinero/Plata"]
 margin_top = 3.0
@@ -697,9 +699,9 @@ margin_right = 137.0
 margin_bottom = 20.0
 
 [node name="Electro" type="HBoxContainer" parent="ColorRect/Dinero"]
-margin_top = 82.0
+margin_top = 92.0
 margin_right = 185.0
-margin_bottom = 102.0
+margin_bottom = 112.0
 
 [node name="PE" type="Label" parent="ColorRect/Dinero/Electro"]
 margin_top = 3.0
@@ -713,9 +715,9 @@ margin_right = 149.0
 margin_bottom = 20.0
 
 [node name="Oro" type="HBoxContainer" parent="ColorRect/Dinero"]
-margin_top = 106.0
+margin_top = 116.0
 margin_right = 185.0
-margin_bottom = 126.0
+margin_bottom = 136.0
 
 [node name="PO" type="Label" parent="ColorRect/Dinero/Oro"]
 margin_top = 3.0
@@ -730,9 +732,9 @@ margin_bottom = 20.0
 script = ExtResource( 9 )
 
 [node name="Platino" type="HBoxContainer" parent="ColorRect/Dinero"]
-margin_top = 130.0
+margin_top = 140.0
 margin_right = 185.0
-margin_bottom = 150.0
+margin_bottom = 160.0
 
 [node name="PPT" type="Label" parent="ColorRect/Dinero/Platino"]
 margin_top = 3.0
